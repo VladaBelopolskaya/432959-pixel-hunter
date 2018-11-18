@@ -1,96 +1,81 @@
 'use strict';
 
 (function () {
+  const RIGHT_ARROW_CODE = 39;
+  const LEFT_ARROW_CODE = 37;
+
   /**
    * Отображение экрана из массива по переданному номеру
    * @param {Element} arrayElement элемент массивa
    */
-  function showScreen(arrayElement) {
+  const showScreen = (arrayElement) => {
     const main = document.querySelector(`#main`);
     const newElement = arrayElement.cloneNode(true);
     while (main.firstChild) {
       main.firstChild.remove();
     }
     main.appendChild(newElement);
-  }
+  };
 
   /**
    * Поиск template по заданному id
    * @param {string} id of template
    * @return {DocumentFragment} содержимое искомого template
    */
-  function findTemplate(id) {
+  const findTemplate = (id) => {
     return document.querySelector(id).content;
-  }
+  };
 
   /**
    * Показ другого экрана при нажатии на стрелки влево / вправо
    * @param {Event} evt событие нажатия на кнопку клавиатуры
    */
-  function changeScreen(evt) {
-    if (evt.keyCode === 39) {
+  const changeScreen = (evt) => {
+    if (evt.keyCode === RIGHT_ARROW_CODE) {
       showNextScreen();
-    }
-    else if (evt.keyCode === 37) {
+    } else if (evt.keyCode === LEFT_ARROW_CODE) {
       showPreviousScreen();
     }
-  }
+  };
 
   /**
    * Показ следующего экрана, если текущий экран не последний
    */
-  function showNextScreen() {
+  const showNextScreen = () => {
     if (currentScreenNumber < arrayOfScreens.length - 1) {
       currentScreenNumber += 1;
       showScreen(arrayOfScreens[currentScreenNumber]);
     }
-  }
+  };
 
   /**
    * Показ предыдущего экрана, если текущий экран не первый
    */
-  function showPreviousScreen() {
+  const showPreviousScreen = () => {
     if (currentScreenNumber > 0) {
       currentScreenNumber -= 1;
       showScreen(arrayOfScreens[currentScreenNumber]);
     }
-  }
+  };
 
   /**
    * Добавление на страницу визуальных стрелок
    */
-  function addVirtualArrows() {
+  const addVirtualArrows = () => {
     const body = document.querySelector(`body`);
     const div = document.createElement(`div`);
-    const buttonLeft = document.createElement(`button`);
-    const buttonRight = document.createElement(`button`);
-    div.style.cssText = `position: absolute; top: 95px; left: 50%; margin-left: -56px;`;
-    buttonLeft.id = `button-left`;
-    buttonLeft.style.cssText = `background: none; border: 2px solid black; padding: 5px 20px;`;
-    buttonLeft.textContent = `<-`;
-    buttonRight.id = `button-right`;
-    buttonRight.style.cssText = `background: none; border: 2px solid black; padding: 5px 20px;`;
-    buttonRight.textContent = `->`;
-    div.appendChild(buttonLeft);
-    div.appendChild(buttonRight);
+    div.className = `arrows__wrap`;
+    div.innerHTML = `<style>.arrows__wrap { position: absolute; top: 95px; left: 50%; margin-left: -56px; } .arrows__btn { background: none; border: 2px solid black; padding: 5px 20px; }</style>
+                     <button class="arrows__btn" id="button-left"><-</button>
+                     <button class="arrows__btn" id="button-right">-></button>`;
     body.appendChild(div);
-  }
+  };
 
   const arrayOfScreens = [];
-  const introScreen = findTemplate(`#intro`);
-  arrayOfScreens.push(introScreen);
-  const greetingScreen = findTemplate(`#greeting`);
-  arrayOfScreens.push(greetingScreen);
-  const rulesScreen = findTemplate(`#rules`);
-  arrayOfScreens.push(rulesScreen);
-  const game1Screen = findTemplate(`#game-1`);
-  arrayOfScreens.push(game1Screen);
-  const game2Screen = findTemplate(`#game-2`);
-  arrayOfScreens.push(game2Screen);
-  const game3Screen = findTemplate(`#game-3`);
-  arrayOfScreens.push(game3Screen);
-  const statsScreen = findTemplate(`#stats`);
-  arrayOfScreens.push(statsScreen);
+  const arrayOfScreensId = [`#intro`, `#greeting`, `#rules`, `#game-1`, `#game-2`, `#game-3`, `#stats`];
+  arrayOfScreensId.forEach((item) => {
+    arrayOfScreens.push(findTemplate(item));
+  });
 
   let currentScreenNumber = 0;
 
