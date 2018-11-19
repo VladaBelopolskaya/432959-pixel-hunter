@@ -50,7 +50,7 @@ const element = getElementFromTemplate(template);
 
 const questionOne = element.querySelector(`question1`);
 const questionTwo = element.querySelector(`question2`);
-const form = element.querySelector(`.game__content`)
+const form = element.querySelector(`.game__content`);
 
 form.addEventListener(`change`, () => {
   if (questionOne.selected === true && questionTwo.selected === true) {

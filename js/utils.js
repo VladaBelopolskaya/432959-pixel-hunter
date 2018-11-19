@@ -14,7 +14,6 @@ export const getElementFromTemplate = (template) => {
  * @param {Element} elem DOM-элемент
  */
 export const showScreen = (elem) => {
-  console.log(`123`);
   const main = document.querySelector(`#main`);
   while (main.firstChild) {
     main.firstChild.remove();

@@ -61,7 +61,7 @@ const template = `
 const element = getElementFromTemplate(template);
 
 const answerArray = element.querySelectorAll(`.game__answer input`);
-const form = element.querySelector(`.game__content`)
+const form = element.querySelector(`.game__content`);
 
 form.addEventListener(`change`, () => {
   answerArray.forEach(function (item) {
