@@ -1,5 +1,5 @@
 import {getElementFromTemplate, showScreen} from './js/utils.js';
-import game3 from './js/game-3.js';
+import threePicturesGame from './js/threePicturesGame.js';
 
 const template = `
 <header class="header">
@@ -64,9 +64,9 @@ const answerArray = element.querySelectorAll(`.game__answer input`);
 const form = element.querySelector(`.game__content`);
 
 form.addEventListener(`change`, () => {
-  answerArray.forEach(function (item) {
+  answerArray.forEach((item) => {
     if (item.selected === true) {
-      showScreen(game3);
+      showScreen(threePicturesGame);
     }
   });
 });

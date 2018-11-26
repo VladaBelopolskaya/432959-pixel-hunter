@@ -48,8 +48,8 @@ const element = getElementFromTemplate(template);
 
 const form = element.querySelector(`.game__content`);
 
-form.addEventListener(`change`, (e) => {
-  if (e.target.className === `game__option`) {
+form.addEventListener(`change`, (evt) => {
+  if (evt.target.className === `game__option`) {
     showScreen(stats);
   }
 });
