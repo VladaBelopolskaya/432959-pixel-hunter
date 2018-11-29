@@ -1,5 +1,5 @@
-import {getElementFromTemplate, showScreen} from './js/utils.js';
-import threePicturesGame from './js/threePicturesGame.js';
+import {getElementFromTemplate, showScreen} from './utils';
+import threePicturesGame from './three-pictures-game';
 
 const template = `
 <header class="header">

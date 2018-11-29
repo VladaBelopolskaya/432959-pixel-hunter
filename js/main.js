@@ -1,5 +1,6 @@
-// import {showScreen} from './js/utils.js';
-import intro from './js/intro.js';
+import {showScreen} from './utils';
+import intro from './intro';
+// import getScore from './game-logic';
 
-console.log(`123`);
 showScreen(intro);
+// getScore();

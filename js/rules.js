@@ -1,5 +1,5 @@
-import {getElementFromTemplate, showScreen} from './js/utils.js';
-import onePictureGame from './js/onePictureGame.js';
+import {getElementFromTemplate, showScreen} from './utils';
+import onePictureGame from './one-picture-game';
 
 const template = `<header class="header">
     <button class="back">

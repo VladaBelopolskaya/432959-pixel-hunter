@@ -1,4 +1,4 @@
-import {getElementFromTemplate} from './js/utils.js';
+import {getElementFromTemplate} from './utils';
 
 const template = `<header class="header">
     <button class="back">

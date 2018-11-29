@@ -1,41 +1,8 @@
-let gameResult2 = [
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  },
-  {
-    answered: false
-  }
-];
-
 export const getScore = (gameResult) => {
   console.log(`123`);
   gameResult.forEach((element) => {
     let isWin = true;
-    if (element.answered === false) {
+    if (!element.answered) {
       isWin = false;
     }
     if (!isWin) {
@@ -45,8 +12,3 @@ export const getScore = (gameResult) => {
     }
   });
 };
-
-console.log(gameResult2);
-
-getScore(gameResult2);
-
