@@ -1,5 +1,5 @@
 import {getElementFromTemplate, showScreen} from './js/utils.js';
-import game2 from './js/game-2.js';
+import twoPicturesGame from './js/twoPicturesGame.js';
 
 const template = `<header class="header">
     <button class="back">
@@ -53,8 +53,8 @@ const questionTwo = element.querySelector(`question2`);
 const form = element.querySelector(`.game__content`);
 
 form.addEventListener(`change`, () => {
-  if (questionOne.selected === true && questionTwo.selected === true) {
-    showScreen(game2);
+  if (questionOne.selected && questionTwo.selected) {
+    showScreen(twoPicturesGame);
   }
 });
 

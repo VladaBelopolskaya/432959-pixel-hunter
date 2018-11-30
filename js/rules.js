@@ -1,5 +1,5 @@
 import {getElementFromTemplate, showScreen} from './js/utils.js';
-import game1 from './js/game-1.js';
+import onePictureGame from './js/onePictureGame.js';
 
 const template = `<header class="header">
     <button class="back">
@@ -41,7 +41,7 @@ inputValue.addEventListener(`input`, () => {
 });
 
 continueButton.addEventListener(`click`, () => {
-  showScreen(game1);
+  showScreen(onePictureGame);
 });
 
 export default element;
