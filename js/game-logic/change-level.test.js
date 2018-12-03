@@ -1,12 +1,12 @@
 import {assert} from 'chai';
 import changeLevel from './change-level';
 
-let gameResult = {
+const testGame = {
   level: 1
 };
 
 describe(`the change of level`, () => {
-  it(`sould be 2`, () => {
-    assert.equal(changeLevel(gameResult), 2);
+  it(`should be 2`, () => {
+    assert.equal(changeLevel(testGame), 2);
   });
 });

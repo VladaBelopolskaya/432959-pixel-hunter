@@ -1,12 +1,12 @@
 import {assert} from 'chai';
 import changeLife from './change-life';
 
-let gameResult = {
+const testGame = {
   life: 3
 };
 
 describe(`the change of life`, () => {
-  it(`sould be 2`, () => {
-    assert.equal(changeLife(gameResult), 2);
+  it(`should be 2`, () => {
+    assert.equal(changeLife(testGame), 2);
   });
 });

@@ -1,4 +1,11 @@
 const getScore = (gameResult) => {
+  const resultPoint = {
+    CORRECT: 100,
+    FAST: 50,
+    SLOW: -50,
+    LIFE: 50,
+  };
+
   const indexOfFalse = gameResult.answerArray.findIndex((element) => {
     if (element.answered === false) {
       return true;
@@ -10,11 +17,11 @@ const getScore = (gameResult) => {
   } else {
     let totalPoints = 0;
     gameResult.answerArray.forEach((element) => {
-      let fastScore = (element.fast === true) ? 50 : 0;
-      let slowScore = (element.slow === true) ? -50 : 0;
-      totalPoints += 100 + fastScore + slowScore;
+      let fastScore = (element.fast === true) ? resultPoint.FAST : 0;
+      let slowScore = (element.slow === true) ? resultPoint.SLOW : 0;
+      totalPoints += resultPoint.CORRECT + fastScore + slowScore;
     });
-    totalPoints += 50 * gameResult.life;
+    totalPoints += resultPoint.LIFE * gameResult.life;
     return totalPoints;
   }
 };
