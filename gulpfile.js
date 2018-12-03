@@ -40,17 +40,20 @@ gulp.task(`style`, () => {
 
 gulp.task(`sprite`, () => {
   return gulp.src(`img/sprite/*.svg`)
-  .pipe(svgstore({
-    inlineSvg: true
-  }))
-  .pipe(rename(`sprite.svg`))
-  .pipe(gulp.dest(`build/img`));
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
+    .pipe(rename(`sprite.svg`))
+    .pipe(gulp.dest(`build/img`));
 });
 
 gulp.task(`scripts`, () => {
-  return gulp.src(`js/**/*.js`).
-    pipe(plumber()).
-    pipe(gulp.dest(`build/js/`));
+  return gulp.src(`js/main.js`)
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(rollup({}, `iife`))
+    .pipe(sourcemaps.write(``))
+    .pipe(gulp.dest(`build/js`));
 });
 
 gulp.task(`imagemin`, [`copy`], () => {
@@ -109,18 +112,6 @@ gulp.task(`assemble`, [`clean`], () => {
 
 gulp.task(`build`, [`assemble`], () => {
   gulp.start(`imagemin`);
-});
-
-gulp.task(`test`, () => {
-});
-
-gulp.task(`scripts`, () => {
-  return gulp.src(`js/main.js`)
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(rollup({}, `iife`))
-    .pipe(sourcemaps.write(``))
-    .pipe(gulp.dest(`build/js`));
 });
 
 gulp.task(`test`, () => {

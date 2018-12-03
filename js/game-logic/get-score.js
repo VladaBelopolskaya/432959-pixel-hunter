@@ -8,14 +8,14 @@ const getScore = (gameResult) => {
   if (indexOfFalse > -1) {
     return -1;
   } else {
-    let result = 0;
+    let totalPoints = 0;
     gameResult.answerArray.forEach((element) => {
       let fastScore = (element.fast === true) ? 50 : 0;
       let slowScore = (element.slow === true) ? -50 : 0;
-      result += 100 + fastScore + slowScore;
+      totalPoints += 100 + fastScore + slowScore;
     });
-    result += 50 * gameResult.life;
-    return result;
+    totalPoints += 50 * gameResult.life;
+    return totalPoints;
   }
 };
 

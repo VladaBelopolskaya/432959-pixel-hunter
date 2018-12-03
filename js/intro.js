@@ -1,5 +1,5 @@
-import {getElementFromTemplate, showScreen} from './js/utils.js';
-import greeting from './js/greeting.js';
+import {getElementFromTemplate, showScreen} from './utils';
+import greeting from './greeting';
 
 const template = `<section class="intro">
     <button class="intro__asterisk asterisk" type="button"><span class="visually-hidden">Продолжить</span>*</button>

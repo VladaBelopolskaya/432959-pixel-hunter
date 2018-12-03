@@ -1,5 +1,5 @@
-import {getElementFromTemplate, showScreen} from './js/utils.js';
-import rules from './js/rules.js';
+import {getElementFromTemplate, showScreen} from './utils';
+import rules from './rules';
 
 const template = `<section class="greeting central--blur">
     <img class="greeting__logo" src="img/logo_ph-big.svg" width="201" height="89" alt="Pixel Hunter">

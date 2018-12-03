@@ -1,5 +1,5 @@
-import {getElementFromTemplate, showScreen} from './js/utils.js';
-import stats from './js/stats.js';
+import {getElementFromTemplate, showScreen} from './utils';
+import stats from './stats';
 
 const template = `<header class="header">
     <button class="back">

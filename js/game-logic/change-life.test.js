@@ -1,4 +1,4 @@
-import { assert } from 'chai';
+import {assert} from 'chai';
 import changeLife from './change-life';
 
 let gameResult = {
